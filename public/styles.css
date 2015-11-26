@@ -34,7 +34,7 @@ form {
   display: none;
 }
 
-.flash{
+/*.flash{
   -moz-animation: flash 1s ease-out;
   -moz-animation-iteration-count: 1;
   -webkit-animation: flash 1s ease-out;
@@ -59,4 +59,4 @@ form {
     0% { background-color:none;}
     50% { background-color:#FAFA00;}
     100% {background-color:none;}
-}
+}*/

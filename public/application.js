@@ -1,6 +1,7 @@
 function updateElement($el, content) {
   $el.text(content);
-  $el.addClass("flash");
+  // $el.addClass("flash");
+  $el.effect('highlight', 1000);
 
   setTimeout( function(){
     $el.removeClass("flash");
