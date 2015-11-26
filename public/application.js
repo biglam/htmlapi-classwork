@@ -1,3 +1,16 @@
+function updatePage(data) {
+  console.debug("updatePage");
+  if(!$('#quote_container').is(":visible")) {
+    $('#splash_container').hide();
+    $('#quote_container').show();
+  }
+  var attributes = ['name', 'symbol', 'lastTrade', 'time', 'date', 'updatedAt'];
+
+  $.each(attributes, function(i, attribute){
+    updateElement($('#' + attribute), data[attribute]);
+  });
+}
+
 function updateElement($el, content) {
   $el.text(content);
   $el.effect('highlight', 1000);
@@ -32,15 +45,7 @@ $(function() {
       type: 'GET',
       beforeSend: startLoading,
       success: function(data) {
-        if(!$('#quote_container').is(":visible")) {
-          $('#splash_container').hide();
-          $('#quote_container').show();
-        }
-        var attributes = ['name', 'symbol', 'lastTrade', 'time', 'date', 'updatedAt'];
-
-        $.each(attributes, function(i, attribute){
-          updateElement($('#' + attribute), data[attribute]);
-        });
+        updatePage(data);
       },
       complete: endLoading
     });
