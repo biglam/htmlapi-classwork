@@ -11,6 +11,11 @@ function updatePage(data) {
   });
 }
 
+function ajaxSuccess(data) {
+  console.debug("Ajax Successful");
+  updatePage(data);
+}
+
 function updateElement($el, content) {
   $el.text(content);
   $el.effect('highlight', 1000);
@@ -45,7 +50,7 @@ $(function() {
       type: 'GET',
       beforeSend: startLoading,
       success: function(data) {
-        updatePage(data);
+        ajaxSuccess(data);
       },
       complete: endLoading
     });
