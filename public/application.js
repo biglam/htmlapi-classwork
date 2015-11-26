@@ -14,6 +14,9 @@ function updatePage(data) {
 function ajaxSuccess(data) {
   console.debug("Ajax Successful");
   updatePage(data);
+  if (typeof history != undefined) {
+    history.pushState(data, "whatever", "/" + data.symbol);
+  }
 }
 
 function updateElement($el, content) {
@@ -40,6 +43,18 @@ function endLoading() {
 }
 
 $(function() {
+
+  var originalContent = $('body').clone();
+  $(window).on('popstate', function(event) {
+      if (event.originalEvent.state) {
+        console.debug("Restoring page state via HTML5 history");
+        updatePage(event.originalEvent.state);
+      } else {
+        console.debug("Restoring page state using smelly jQuery swapping.");
+        $('body').replaceWith(originalContent);
+      }
+    });
+
   $('#stock_search').on("submit", function(e) {
     e.preventDefault();
     var stockSymbol = $('#stock_symbol').val();
@@ -54,6 +69,7 @@ $(function() {
     //   },
     //   complete: endLoading
     // });
+  startLoading();
     $.get(url).success(ajaxSuccess).complete(endLoading);
   });
 });
