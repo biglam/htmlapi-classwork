@@ -45,16 +45,16 @@ $(function() {
     var stockSymbol = $('#stock_symbol').val();
     var url = '/' + stockSymbol;
 
-    $.ajax({
-      url: url,
-      type: 'GET',
-      beforeSend: startLoading,
-      success: function(data) {
-        ajaxSuccess(data);
-      },
-      complete: endLoading
-    });
-
+    // $.ajax({
+    //   url: url,
+    //   type: 'GET',
+    //   beforeSend: startLoading,
+    //   success: function(data) {
+    //     ajaxSuccess(data);
+    //   },
+    //   complete: endLoading
+    // });
+    $.get(url).success(ajaxSuccess).complete(endLoading);
   });
 });
 
