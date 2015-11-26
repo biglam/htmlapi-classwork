@@ -1,0 +1,62 @@
+body {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+}
+
+.quote {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.about {
+  font-size: 80%;
+}
+
+form {
+  border-top: 1px solid #777;
+  padding-top: 0.3em;
+}
+
+#updatemessage {
+  margin-left: 30%;
+  margin-right: 30%;
+  border-radius: 20px;
+  border: 1px solid #aa3;
+  padding: 5px;
+  padding-left: 25px;
+  background: url('spinner.gif') 5px 5px no-repeat;
+  background-color: #ee9;
+}
+
+.hidden {
+  display: none;
+}
+
+.flash{
+  -moz-animation: flash 1s ease-out;
+  -moz-animation-iteration-count: 1;
+  -webkit-animation: flash 1s ease-out;
+  -webkit-animation-iteration-count: 1;
+  -ms-animation: flash 1s ease-out;
+  -ms-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes flash {
+    0% { background-color:none;}
+    50% { background-color:#FAFA00;}
+    100% {background-color:none;}
+}
+
+@-moz-keyframes flash {
+    0% { background-color:none;}
+    50% { background-color:#FAFA00;}
+    100% {background-color:none;}
+}
+
+@-ms-keyframes flash {
+    0% { background-color:none;}
+    50% { background-color:#FAFA00;}
+    100% {background-color:none;}
+}
