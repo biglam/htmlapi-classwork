@@ -1,6 +1,5 @@
 function updateElement($el, content) {
   $el.text(content);
-  // $el.addClass("flash");
   $el.effect('highlight', 1000);
 
   setTimeout( function(){
@@ -38,9 +37,7 @@ $(function() {
           $('#quote_container').show();
         }
         var attributes = ['name', 'symbol', 'lastTrade', 'time', 'date', 'updatedAt'];
-        // for (var i = 0; i < attributes.length; i++) {
-        //   updateElement($('#' + attributes[i]), data[attributes[i]]);
-        // }
+
         $.each(attributes, function(i, attribute){
           updateElement($('#' + attribute), data[attribute]);
         });
