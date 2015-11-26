@@ -8,12 +8,17 @@ function updateElement($el, content) {
 }
 
 function startLoading() {
+  var $submitButton = $('form input[type="submit"]')
+  $submitButton.attr('disabled', true).val('Please wait...');
   $('#updatemessage').slideDown();
 }
 
 function endLoading() {
   $('#updatemessage').slideUp();
   $('#stock_symbol').val('');
+  var $submitButton = $('form input[type="submit"]')
+  $submitButton.attr('disabled', false).val('Query');
+
 }
 
 $(function() {
